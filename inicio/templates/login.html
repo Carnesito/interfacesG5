@@ -1,0 +1,16 @@
+{% load static %}
+{% include "header.html" %}
+
+   <br>
+<h3 class="text-center mb-4">Iniciar Sesión</h3>
+
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <label for="usuario">Nombre de Usuario:</label>
+    <input type="text" placeholder="Ingrese su nombre de usuario" id="usuario" name="usuario" class="form-control mb-3" required>
+     <label for="contraseña">Contraseña:</label>
+     <input type="password" placeholder="Ingrese su contraseña" id="contraseña" name="contraseña" class="form-control mb-3" required>
+        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+        
+</form>
+{% include "footer.html" %}

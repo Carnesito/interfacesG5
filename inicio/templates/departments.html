@@ -1,0 +1,444 @@
+{% load static %}
+{% include "header.html" with body_class="departments-page" %}
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Centros Médicos</h1>
+              <p class="mb-0">
+                Contamos con múltiples especialidades médicas para brindarte atención integral. Conoce nuestros departamentos y encuentra el especialista que necesitas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li class="current">Centros Médicos</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Departments Tabs Section -->
+    <section id="departments-tabs" class="departments-tabs section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="medical-specialties">
+          <div class="row">
+            <div class="col-12">
+              <div class="specialty-navigation">
+                <div class="nav nav-pills d-flex" id="specialty-tabs" role="tablist" data-aos="fade-up" data-aos-delay="400">
+                  <a class="nav-link department-tab active" id="neurology-tab" data-bs-toggle="pill" href="#departments-tabs-neurology" role="tab" aria-controls="departments-tabs-neurology" aria-selected="true" data-aos="fade-up" data-aos-delay="100">Neurología</a>
+                  <a class="nav-link department-tab" id="surgery-tab" data-bs-toggle="pill" href="#departments-tabs-surgery" role="tab" aria-controls="departments-tabs-surgery" aria-selected="false" data-aos="fade-up" data-aos-delay="150">Cirugía</a>
+                  <a class="nav-link department-tab" id="dental-tab" data-bs-toggle="pill" href="#departments-tabs-dental" role="tab" aria-controls="departments-tabs-dental" aria-selected="false" data-aos="fade-up" data-aos-delay="200">Odontología</a>
+                  <a class="nav-link department-tab" id="ophthalmology-tab" data-bs-toggle="pill" href="#departments-tabs-ophthalmology" role="tab" aria-controls="departments-tabs-ophthalmology" aria-selected="false" data-aos="fade-up" data-aos-delay="250">Oftalmología</a>
+                  <a class="nav-link department-tab" id="cardiology-tab" data-bs-toggle="pill" href="#departments-tabs-cardiology" role="tab" aria-controls="departments-tabs-cardiology" aria-selected="false" data-aos="fade-up" data-aos-delay="300">Cardiología</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="tab-content department-content" id="specialty-content" data-aos="fade-up" data-aos-delay="500">
+
+                <div class="tab-pane fade show active" id="departments-tabs-neurology" role="tabpanel" aria-labelledby="neurology-tab">
+                  <div class="row department-layout">
+                    <div class="col-lg-4 order-lg-2">
+                      <div class="department-image">
+                        <img src="{% static 'assets/img/health/neurology-3.webp' %}" alt="Departamento de Neurología" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                      <div class="department-info">
+                        <h2 class="department-title">Departamento de Ciencias Neurológicas</h2>
+                        <p class="department-description">Brindamos atención especializada para trastornos del sistema nervioso central y periférico, utilizando tecnología de punta para el diagnóstico y tratamiento preciso.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-brain"></i></div>
+                              <div class="service-content">
+                                <h4>Monitoreo Cerebral</h4>
+                                <p>Seguimiento continuo de la actividad cerebral con equipos avanzados.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-wave-square"></i></div>
+                              <div class="service-content">
+                                <h4>Electroencefalografía</h4>
+                                <p>Estudios de EEG para diagnóstico de trastornos neurológicos.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                              <div class="service-content">
+                                <h4>Examen Neurológico</h4>
+                                <p>Evaluaciones completas para detectar alteraciones del sistema nervioso.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-file-medical"></i></div>
+                              <div class="service-content">
+                                <h4>Planes de Tratamiento</h4>
+                                <p>Protocolos personalizados para cada condición neurológica.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="departments-tabs-surgery" role="tabpanel" aria-labelledby="surgery-tab">
+                  <div class="row department-layout">
+                    <div class="col-lg-4 order-lg-2">
+                      <div class="department-image">
+                        <img src="{% static 'assets/img/health/surgery-2.webp' %}" alt="Departamento de Cirugía" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                      <div class="department-info">
+                        <h2 class="department-title">Departamento de Servicios Quirúrgicos</h2>
+                        <p class="department-description">Ofrecemos procedimientos quirúrgicos de última generación realizados por cirujanos altamente especializados, con enfoque en técnicas mínimamente invasivas para una recuperación más rápida.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-cut"></i></div>
+                              <div class="service-content">
+                                <h4>Cirugía Mínimamente Invasiva</h4>
+                                <p>Técnicas avanzadas con incisiones pequeñas y recuperación acelerada.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-tools"></i></div>
+                              <div class="service-content">
+                                <h4>Procedimientos Avanzados</h4>
+                                <p>Equipamiento quirúrgico de última tecnología.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                              <div class="service-content">
+                                <h4>Operaciones Seguras</h4>
+                                <p>Protocolos de seguridad rigurosos en cada procedimiento.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-clock"></i></div>
+                              <div class="service-content">
+                                <h4>Soporte de Recuperación</h4>
+                                <p>Acompañamiento integral durante todo el proceso postoperatorio.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="departments-tabs-dental" role="tabpanel" aria-labelledby="dental-tab">
+                  <div class="row department-layout">
+                    <div class="col-lg-4 order-lg-2">
+                      <div class="department-image">
+                        <img src="{% static 'assets/img/health/dermatology-1.webp' %}" alt="Departamento de Odontología" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                      <div class="department-info">
+                        <h2 class="department-title">Departamento de Odontología</h2>
+                        <p class="department-description">Cuidamos tu salud bucal con servicios odontológicos completos, desde limpieza y prevención hasta procedimientos de ortodoncia y cirugía oral.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="far fa-smile"></i></div>
+                              <div class="service-content">
+                                <h4>Salud Oral</h4>
+                                <p>Chequeos regulares y prevención de enfermedades bucales.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-tooth"></i></div>
+                              <div class="service-content">
+                                <h4>Limpieza Dental</h4>
+                                <p>Limpieza profesional para mantener una sonrisa saludable.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-star"></i></div>
+                              <div class="service-content">
+                                <h4>Odontología Estética</h4>
+                                <p>Procedimientos cosméticos para mejorar tu sonrisa.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-cog"></i></div>
+                              <div class="service-content">
+                                <h4>Ortodoncia</h4>
+                                <p>Tratamientos de alineación dental avanzados.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="departments-tabs-ophthalmology" role="tabpanel" aria-labelledby="ophthalmology-tab">
+                  <div class="row department-layout">
+                    <div class="col-lg-4 order-lg-2">
+                      <div class="department-image">
+                        <img src="{% static 'assets/img/health/pediatrics-4.webp' %}" alt="Departamento de Oftalmología" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                      <div class="department-info">
+                        <h2 class="department-title">Departamento de Oftalmología</h2>
+                        <p class="department-description">Cuidamos tu visión con los más avanzados métodos de diagnóstico y tratamiento oftalmológico, desde exámenes de rutina hasta cirugía láser especializada.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-eye"></i></div>
+                              <div class="service-content">
+                                <h4>Evaluación Visual</h4>
+                                <p>Exámenes completos de agudeza y campo visual.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-camera"></i></div>
+                              <div class="service-content">
+                                <h4>Imagen de Retina</h4>
+                                <p>Estudios avanzados de retina y estructuras oculares.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                              <div class="service-content">
+                                <h4>Cirugía Láser</h4>
+                                <p>Procedimientos refractivos con tecnología láser de precisión.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-prescription-bottle"></i></div>
+                              <div class="service-content">
+                                <h4>Planes de Cuidado Visual</h4>
+                                <p>Tratamientos personalizados para cada condición ocular.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="departments-tabs-cardiology" role="tabpanel" aria-labelledby="cardiology-tab">
+                  <div class="row department-layout">
+                    <div class="col-lg-4 order-lg-2">
+                      <div class="department-image">
+                        <img src="{% static 'assets/img/health/cardiology-3.webp' %}" alt="Departamento de Cardiología" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="col-lg-8 order-lg-1">
+                      <div class="department-info">
+                        <h2 class="department-title">Departamento de Cardiología</h2>
+                        <p class="department-description">Brindamos atención cardiovascular integral con tecnología de punta para el diagnóstico, tratamiento y prevención de enfermedades del corazón.</p>
+                        <div class="row mt-4">
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                              <div class="service-content">
+                                <h4>Monitoreo Cardíaco</h4>
+                                <p>Seguimiento continuo de la actividad cardíaca.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                              <div class="service-content">
+                                <h4>Análisis de ECG</h4>
+                                <p>Interpretación avanzada de electrocardiogramas.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-tint"></i></div>
+                              <div class="service-content">
+                                <h4>Análisis de Sangre</h4>
+                                <p>Pruebas de laboratorio para marcadores cardíacos.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="service-item">
+                              <div class="service-icon"><i class="fas fa-shield-heart"></i></div>
+                              <div class="service-content">
+                                <h4>Cuidado Preventivo</h4>
+                                <p>Programas de prevención de enfermedades cardiovasculares.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Departments Tabs Section -->
+
+    <!-- Departments Grid Section -->
+    <section id="departments" class="departments section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="department-card">
+              <div class="department-icon"><i class="fas fa-heartbeat"></i></div>
+              <div class="department-image">
+                <img src="{% static 'assets/img/health/cardiology-3.webp' %}" alt="Cardiología" class="img-fluid">
+              </div>
+              <div class="department-content">
+                <h3>Cardiología</h3>
+                <p>Atención cardíaca integral con herramientas de diagnóstico avanzadas y cardiólogos expertos para tu salud cardiovascular.</p>
+                <a href="{% url 'citas' %}" class="learn-more">
+                  <span>Agendar Cita</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="department-card">
+              <div class="department-icon"><i class="fas fa-brain"></i></div>
+              <div class="department-image">
+                <img src="{% static 'assets/img/health/neurology-2.webp' %}" alt="Neurología" class="img-fluid">
+              </div>
+              <div class="department-content">
+                <h3>Neurología</h3>
+                <p>Tratamiento avanzado para trastornos neurológicos con tecnología de punta y equipos especializados.</p>
+                <a href="{% url 'citas' %}" class="learn-more">
+                  <span>Agendar Cita</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="department-card">
+              <div class="department-icon"><i class="fas fa-bone"></i></div>
+              <div class="department-image">
+                <img src="{% static 'assets/img/health/orthopedics-4.webp' %}" alt="Ortopedia" class="img-fluid">
+              </div>
+              <div class="department-content">
+                <h3>Ortopedia</h3>
+                <p>Atención experta en huesos y articulaciones, desde lesiones deportivas hasta cirugía reconstructiva compleja.</p>
+                <a href="{% url 'citas' %}" class="learn-more">
+                  <span>Agendar Cita</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="department-card">
+              <div class="department-icon"><i class="fas fa-child"></i></div>
+              <div class="department-image">
+                <img src="{% static 'assets/img/health/pediatrics-3.webp' %}" alt="Pediatría" class="img-fluid">
+              </div>
+              <div class="department-content">
+                <h3>Pediatría</h3>
+                <p>Atención médica especializada para bebés, niños y adolescentes con pediatras compasivos y dedicados.</p>
+                <a href="{% url 'citas' %}" class="learn-more">
+                  <span>Agendar Cita</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="department-card">
+              <div class="department-icon"><i class="fas fa-hand-holding-medical"></i></div>
+              <div class="department-image">
+                <img src="{% static 'assets/img/health/dermatology-4.webp' %}" alt="Dermatología" class="img-fluid">
+              </div>
+              <div class="department-content">
+                <h3>Dermatología</h3>
+                <p>Servicios completos de cuidado de la piel, desde dermatología médica hasta procedimientos estéticos.</p>
+                <a href="{% url 'citas' %}" class="learn-more">
+                  <span>Agendar Cita</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="department-card">
+              <div class="department-icon"><i class="fas fa-ribbon"></i></div>
+              <div class="department-image">
+                <img src="{% static 'assets/img/health/oncology-2.webp' %}" alt="Oncología" class="img-fluid">
+              </div>
+              <div class="department-content">
+                <h3>Oncología</h3>
+                <p>Atención integral contra el cáncer con enfoque multidisciplinario y las últimas opciones de tratamiento.</p>
+                <a href="{% url 'citas' %}" class="learn-more">
+                  <span>Agendar Cita</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Departments Section -->
+
+{% include "footer.html" %}
