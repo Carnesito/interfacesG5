@@ -75,12 +75,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DB_sanis',
-        'USER': 'postgres',
-        'PASSWORD': 'karen2005',
-        'HOST': 'localhost',
-        'PORT': '5432',     
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'DB_sanis',
+       
     }
 }
 
