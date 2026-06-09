@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render(request, 'index.html')
@@ -13,6 +14,7 @@ def departamentos(request):
 def citas(request):
     return render(request, 'citas.html')
 
+@login_required(login_url='login')
 def dashboard(request):
     return render(request, 'dashboard.html')
 
