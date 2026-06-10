@@ -1133,6 +1133,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 2rem;
   max-width: 500px;
+  letter-spacing: 0.02em;
 }
 
 .hero .hero-content .hero-stats {
