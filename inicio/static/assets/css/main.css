@@ -1200,6 +1200,7 @@ section,
   background: linear-gradient(135deg, #1f7aed, #175cdd);
   color: var(--contrast-color);
   box-shadow: var(--soft-shadow);
+  letter-spacing: 0.06em;
 }
 
 .hero .hero-content .hero-actions .btn.btn-primary:hover {
