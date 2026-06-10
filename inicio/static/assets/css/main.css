@@ -1058,12 +1058,14 @@ section,
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border-radius: 50px;
+  padding: 0.65rem 1.2rem;
+  background: linear-gradient(135deg, rgba(31, 122, 237, 0.12), rgba(23, 92, 221, 0.08));
+  border-radius: 60px;
   color: var(--accent-color);
   font-size: 0.875rem;
   font-weight: 500;
+  border: 1px solid rgba(31, 122, 237, 0.12);
+  backdrop-filter: blur(8px);
 }
 
 .hero .hero-content .trust-badges .badge-item i {
@@ -1284,16 +1286,23 @@ section,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.hero .hero-visual .main-image:hover img {
+  transform: scale(1.02);
+  filter: saturate(1.05);
 }
 
 .hero .hero-visual .main-image .floating-card {
   position: absolute;
   background: var(--surface-color);
   padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 20px;
+  box-shadow: 0 18px 55px rgba(17, 34, 68, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border: 1px solid rgba(17, 34, 68, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero .hero-visual .main-image .floating-card.appointment-card {
@@ -1306,11 +1315,11 @@ section,
 }
 
 .hero .hero-visual .main-image .floating-card.appointment-card .card-icon {
-  width: 50px;
-  height: 50px;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, rgba(31, 122, 237, 0.14), rgba(23, 92, 221, 0.2));
   color: var(--accent-color);
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1341,6 +1350,8 @@ section,
   left: 20px;
   text-align: center;
   min-width: 140px;
+  background: rgba(31, 122, 237, 0.08);
+  border-color: rgba(31, 122, 237, 0.12);
 }
 
 .hero .hero-visual .main-image .floating-card.rating-card .rating-stars {
@@ -1392,8 +1403,9 @@ section,
 .hero .hero-visual .background-elements .element {
   position: absolute;
   border-radius: 50%;
-  background: var(--accent-color);
-  opacity: 0.1;
+  background: radial-gradient(circle, rgba(31, 122, 237, 0.24) 0%, rgba(23, 92, 221, 0.04) 100%);
+  opacity: 1;
+  filter: blur(0.5px);
 }
 
 .hero .hero-visual .background-elements .element.element-1 {
@@ -1516,6 +1528,10 @@ section,
 
 .home-about .about-content .stats-grid .stat-item {
   text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 22px 55px rgba(17, 34, 68, 0.05);
 }
 
 .home-about .about-content .stats-grid .stat-item .stat-number {
@@ -1547,14 +1563,15 @@ section,
 }
 
 .home-about .about-content .cta-section .btn-primary {
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color-alt));
   color: var(--contrast-color);
   padding: 12px 30px;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 18px 40px rgba(31, 122, 237, 0.14);
 }
 
 .home-about .about-content .cta-section .btn-primary:hover {
@@ -1609,9 +1626,9 @@ section,
   left: -30px;
   background-color: var(--surface-color);
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 90%);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(17, 34, 68, 0.08);
+  border: 1px solid rgba(17, 34, 68, 0.08);
 }
 
 @media (max-width: 768px) {
@@ -1663,12 +1680,12 @@ section,
   position: absolute;
   top: 20px;
   right: -20px;
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, #1f7aed, #175cdd);
   color: var(--contrast-color);
-  padding: 1.25rem;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: 18px;
   text-align: center;
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 70%);
+  box-shadow: 0 24px 70px rgba(17, 34, 68, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -1683,8 +1700,8 @@ section,
 
 .home-about .about-visual .experience-badge .badge-content .years {
   display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.85rem;
+  font-weight: 700;
   line-height: 1;
 }
 
