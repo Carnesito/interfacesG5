@@ -1180,7 +1180,7 @@ section,
 
 .hero .hero-content .hero-actions {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.35rem;
   align-items: center;
   margin-bottom: 2rem;
 }
