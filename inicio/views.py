@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+<<<<<<< HEAD
 from django.contrib.auth.models import User
+=======
+from django.contrib.auth.decorators import login_required
+>>>>>>> respaldo-local
 
 def inicio(request):
     return render(request, 'index.html')
@@ -14,6 +18,13 @@ def departamentos(request):
 def citas(request):
     return render(request, 'citas.html')
 
+<<<<<<< HEAD
+=======
+@login_required(login_url='login')
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+>>>>>>> respaldo-local
 def login_view(request):
     mensaje = ''
     if request.method == 'POST':
