@@ -1223,7 +1223,7 @@ section,
   color: var(--contrast-color);
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 18px 40px rgba(31, 122, 237, 0.14);
+  box-shadow: 0 22px 50px rgba(31, 122, 237, 0.18);
 }
 
 @media (max-width: 576px) {
