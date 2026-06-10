@@ -24,7 +24,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #3c4049; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #112344; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #175cdd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #1f7aed; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -1098,9 +1098,16 @@ section,
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: var(--accent-color);
+  height: 4px;
+  background: linear-gradient(135deg, rgba(31,122,237,0.9), rgba(23,92,221,1));
   border-radius: 2px;
+}
+
+.hero .hero-content .hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(17, 35, 68, 0.78);
+  margin-bottom: 1rem;
+  max-width: 38rem;
 }
 
 @media (max-width: 992px) {
@@ -1176,12 +1183,13 @@ section,
 }
 
 .hero .hero-content .hero-actions .btn.btn-primary {
-  background: var(--accent-color);
+  background: linear-gradient(135deg, #1f7aed, #175cdd);
   color: var(--contrast-color);
+  box-shadow: 0 18px 40px rgba(31, 122, 237, 0.18);
 }
 
 .hero .hero-content .hero-actions .btn.btn-primary:hover {
-  background: color-mix(in srgb, var(--accent-color), black 10%);
+  background: linear-gradient(135deg, #175cdd, #114ea3);
   transform: translateY(-2px);
 }
 
