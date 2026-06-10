@@ -16,14 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 urlpatterns = [
-<<<<<<< HEAD
-    path('', include('inicio.urls')),  
+    path('', include('inicio.urls')),
     path('dashboard/', include('dashboard.urls')),
-=======
-    path('', include('inicio.urls')), 
-    path('dashboard/', include('dashboard.urls')), 
->>>>>>> respaldo-local
-    path('admin/', admin.site.urls),  
-    
+    path('admin/', admin.site.urls),
 ]
