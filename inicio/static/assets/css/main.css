@@ -1215,6 +1215,7 @@ section,
   border-color: var(--accent-color);
   background: rgba(31, 122, 237, 0.08);
   backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(31, 122, 237, 0.08);
 }
 
 .hero .hero-content .hero-actions .btn.btn-outline:hover {
