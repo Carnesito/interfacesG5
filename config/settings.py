@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inicio',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +76,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'DB_sanis',
-       
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'interfacesG5',
+        'USER': 'postgres',
+        'PASSWORD': '2005',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -115,12 +119,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
+import os
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'inicio' / 'static',
+    BASE_DIR / 'dashboard' / 'static',
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-
-
-STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

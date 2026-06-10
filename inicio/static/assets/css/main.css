@@ -144,9 +144,21 @@ h6 {
 /* Main content offset for fixed header
 --------------------------------------------------------------*/
 .main {
-  padding-top: 150px;
+  padding-top: 0;
 }
 
+/* For pages with fixed header AND no hero nor page-title (like login), push first content down */
+.header.fixed-top ~ .main > section:first-child,
+.header.fixed-top ~ .main > form:first-child,
+.header.fixed-top ~ .main > div:first-child,
+.header.fixed-top ~ .main > h3:first-child {
+  margin-top: 130px;
+}
+
+/* On hero pages, the header overlays the hero section (transparent initially) */
+.hero {
+  margin-top: 0;
+}
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
@@ -896,7 +908,7 @@ h6 {
   color: var(--default-color);
   background-color: var(--background-color);
   position: relative;
-  padding-top: 100px;
+  padding-top: 130px;
 }
 
 .page-title .heading {
