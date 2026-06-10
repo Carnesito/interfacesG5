@@ -616,8 +616,9 @@ html[data-theme="dark"] .status-pill {
   align-items: end;
   gap: 1rem;
   padding: 1.2rem 0.4rem 0;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .chart-column {
