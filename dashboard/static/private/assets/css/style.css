@@ -715,6 +715,7 @@ html[data-theme="dark"] .status-pill {
 
 .table tbody tr:hover {
   background: #f8fbff;
+  transform: translateX(2px);
 }
 
 .badge {
