@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'dashboard/header.html' %}
+<form action="{% url 'crear_usuarios' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" class="form-control" id="username" name="username" required placeholder="Ingrese el nombre de usuario">
+    </div>
+    <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" class="form-control" id="email" name="email" required placeholder="Ingrese el correo electrónico">
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" class="form-control" name="password" required placeholder="Ingrese la contraseña">
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'listar_usuarios' %}" class="btn btn-danger">Cancelar</a>
+
+</form>
+{% include 'dashboard/footer.html' %}

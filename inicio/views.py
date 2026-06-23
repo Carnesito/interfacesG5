@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 def inicio(request):
     return render(request, 'index.html')
@@ -13,18 +14,19 @@ def departamentos(request):
 def citas(request):
     return render(request, 'citas.html')
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
-
 def login_view(request):
     mensaje = ''
     if request.method == 'POST':
         username = request.POST.get('usuario')
         password = request.POST.get('contraseña')
+        user_exists = User.objects.filter(username=username).exists()
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('dashboard')
         else:
-            mensaje = 'Usuario o contraseña incorrectos'
+            if user_exists:
+                mensaje = 'La contraseña es incorrecta. Por favor, inténtelo de nuevo.'
+            else:
+                mensaje = 'El usuario ingresado no existe.'
     return render(request, 'login.html', {'mensaje': mensaje})
