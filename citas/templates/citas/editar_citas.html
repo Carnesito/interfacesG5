@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="doctor">Doctor / Especialista</label>
+            <label for="doctor">Doctor o especialista</label>
             <select class="form-control" id="doctor" name="doctor" required>
                 {% for doctor in doctores %}
                     <option value="{{ doctor.id }}" {% if doctor.id == cita.doctor.id %}selected{% endif %}>
