@@ -1,0 +1,72 @@
+{% load static %}
+{% include "dashboard/header.html" %}
+
+<div class="container mt-4">
+    <h2>Editar Cita Médica</h2>
+    <br>
+    <form action="{% url 'editar_cita' cita.id %}" method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="paciente">Paciente</label>
+            <select class="form-control" id="paciente" name="paciente" required>
+                {% for paciente in pacientes %}
+                    <option value="{{ paciente.id }}" {% if paciente.id == cita.paciente.id %}selected{% endif %}>
+                        {{ paciente.nombre_completo }} (Cédula: {{ paciente.cedula }})
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="doctor">Doctor / Especialista</label>
+            <select class="form-control" id="doctor" name="doctor" required>
+                {% for doctor in doctores %}
+                    <option value="{{ doctor.id }}" {% if doctor.id == cita.doctor.id %}selected{% endif %}>
+                        Dr/Dra. {{ doctor.username }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="especialidad">Especialidad</label>
+            <select class="form-control" id="especialidad" name="especialidad" required>
+                {% for especialidad in especialidades %}
+                    <option value="{{ especialidad.id }}" {% if especialidad.id == cita.especialidad.id %}selected{% endif %}>
+                        {{ especialidad.nombre }} - Costo: ${{ especialidad.costo }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha">Fecha</label>
+            <input type="text" class="form-control" id="fecha" name="fecha" value="{{ cita.fecha|date:'Y-m-d' }}" placeholder="AAAA-MM-DD" required>
+        </div>
+        <div class="mb-3">
+            <label for="hora">Hora</label>
+            <input type="time" class="form-control" id="hora" name="hora" value="{{ cita.hora|time:'H:i' }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="estado">Estado de la Cita</label>
+            <select class="form-control" id="estado" name="estado" required>
+                <option value="Pendiente" {% if cita.estado == "Pendiente" %}selected{% endif %}>Pendiente</option>
+                <option value="En curso" {% if cita.estado == "En curso" %}selected{% endif %}>En curso</option>
+                <option value="Finalizada" {% if cita.estado == "Finalizada" %}selected{% endif %}>Finalizada</option>
+                <option value="Cancelada" {% if cita.estado == "Cancelada" %}selected{% endif %}>Cancelada</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="motivo_consulta">Motivo de la Consulta</label>
+            <textarea class="form-control" id="motivo_consulta" name="motivo_consulta" rows="3">{{ cita.motivo_consulta }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'listar_citas' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+{% include "dashboard/footer.html" %}
