@@ -8,11 +8,11 @@
         {% csrf_token %}
         
         <div class="mb-3">
-            <label for="paciente">Paciente</label>
-            <select class="form-control" id="paciente" name="paciente" required>
+            <label for="Paciente">Paciente</label>
+            <select class="form-control" id="Paciente" name="Paciente" required>
                 <option value="">-- Seleccionar Paciente --</option>
-                {% for paciente in pacientes %}
-                    <option value="{{ paciente.id }}">{{ paciente.nombre_completo }} (Cédula: {{ paciente.cedula }})</option>
+                {% for Paciente in Pacientes %}
+                    <option value="{{ Paciente.id }}">{{ Paciente.nombre_completo }} (Cédula: {{ Paciente.cedula }})</option>
                 {% endfor %}
             </select>
         </div>
