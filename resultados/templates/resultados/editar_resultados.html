@@ -1,0 +1,170 @@
+{% load static %}
+{% include "dashboard/header.html" %}
+
+<div class="container mt-4">
+    <h2>Editar Resultado Médico</h2>
+    <br>
+    <form action="{% url 'editar_resultado' resultado.id %}" method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label class="form-label d-block"><strong>Cita Médica:</strong> Cita #{{ resultado.cita.id }} (Paciente: {{ resultado.cita.paciente.nombre_completo }})</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="diagnostico">Diagnóstico</label>
+            <textarea class="form-control" id="diagnostico" name="diagnostico" rows="3" required>{{ resultado.diagnostico }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="indicaciones">Indicaciones Generales</label>
+            <textarea class="form-control" id="indicaciones" name="indicaciones" rows="3" required>{{ resultado.indicaciones }}</textarea>
+        </div>
+
+        <br>
+        <h4>Asignar Medicamentos (Receta)</h4>
+        <small class="text-muted">Seleccione un medicamento y agréguelo a la receta.</small>
+        <br><br>
+
+        <div class="row align-items-end mb-3">
+            <div class="col-md-5">
+                <label for="medicine-select">Medicamento</label>
+                <select id="medicine-select" class="form-select">
+                    <option value="">-- Seleccionar Medicamento --</option>
+                    {% for item in medicinas_list %}
+                        <option value="{{ item.medicina.id }}" 
+                                data-stock="{% if item.asignada %}{{ item.medicina.stock_medicina|add:item.cantidad }}{% else %}{{ item.medicina.stock_medicina }}{% endif %}" 
+                                data-nombre="{{ item.medicina.nombre_medicina }}">
+                            {{ item.medicina.nombre_medicina }} (Stock Disponible: {% if item.asignada %}{{ item.medicina.stock_medicina|add:item.cantidad }}{% else %}{{ item.medicina.stock_medicina }}{% endif %})
+                        </option>
+                    {% empty %}
+                        <option value="" disabled>No hay medicamentos en el inventario.</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="medicine-qty">Cantidad</label>
+                <input type="number" id="medicine-qty" class="form-control" placeholder="Cant." min="1">
+            </div>
+            <div class="col-md-4">
+                <label for="medicine-dose">Dosis / Instrucción</label>
+                <input type="text" id="medicine-dose" class="form-control" placeholder="Ej: 1 cada 8h">
+            </div>
+            <div class="col-md-1">
+                <button type="button" id="add-medicine" class="btn btn-primary w-100">+</button>
+            </div>
+        </div>
+
+        <div id="medicines-container">
+            {% for item in medicinas_list %}
+                {% if item.asignada %}
+                <div class="card mb-2" id="row_{{ item.medicina.id }}">
+                    <div class="card-body py-2 px-3 d-flex align-items-center gap-3">
+                        <input type="hidden" name="medicinas_seleccionadas" value="{{ item.medicina.id }}">
+                        <input type="hidden" name="cantidad_{{ item.medicina.id }}" value="{{ item.cantidad }}">
+                        <input type="hidden" name="dosis_{{ item.medicina.id }}" value="{{ item.dosis }}">
+                        <div style="flex: 2;">
+                            <strong>{{ item.medicina.nombre_medicina }}</strong>
+                        </div>
+                        <div style="flex: 1;">
+                            Cantidad: {{ item.cantidad }}
+                        </div>
+                        <div style="flex: 3;">
+                            Dosis: {{ item.dosis }}
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-sm btn-outline-danger remove-medicine">Quitar</button>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <br>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const addBtn = document.getElementById('add-medicine');
+                const container = document.getElementById('medicines-container');
+
+                addBtn.addEventListener('click', function() {
+                    const select = document.getElementById('medicine-select');
+                    const qtyInput = document.getElementById('medicine-qty');
+                    const doseInput = document.getElementById('medicine-dose');
+
+                    const selectedOption = select.options[select.selectedIndex];
+                    if (selectedOption.value === "") {
+                        alert("Por favor seleccione un medicamento.");
+                        return;
+                    }
+
+                    const id = selectedOption.value;
+                    const nombre = selectedOption.getAttribute('data-nombre');
+                    const maxStock = parseInt(selectedOption.getAttribute('data-stock'));
+                    const qty = parseInt(qtyInput.value);
+                    const dose = doseInput.value;
+
+                    if (isNaN(qty) || qty <= 0) {
+                        alert("Por favor ingrese una cantidad válida mayor a 0.");
+                        return;
+                    }
+
+                    if (qty > maxStock) {
+                        alert("La cantidad excede el stock disponible (" + maxStock + ").");
+                        return;
+                    }
+
+                    if (!dose) {
+                        alert("Por favor ingrese la dosis / instrucción.");
+                        return;
+                    }
+
+                    if (document.getElementById('row_' + id)) {
+                        alert("Este medicamento ya está en la receta. Puede quitarlo y agregarlo de nuevo si desea cambiar algo.");
+                        return;
+                    }
+
+                    const html = `
+                    <div class="card mb-2" id="row_${id}">
+                        <div class="card-body py-2 px-3 d-flex align-items-center gap-3">
+                            <input type="hidden" name="medicinas_seleccionadas" value="${id}">
+                            <input type="hidden" name="cantidad_${id}" value="${qty}">
+                            <input type="hidden" name="dosis_${id}" value="${dose}">
+                            <div style="flex: 2;">
+                                <strong>${nombre}</strong>
+                            </div>
+                            <div style="flex: 1;">
+                                Cantidad: ${qty}
+                            </div>
+                            <div style="flex: 3;">
+                                Dosis: ${dose}
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-sm btn-outline-danger remove-medicine">Quitar</button>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+
+                    container.insertAdjacentHTML('beforeend', html);
+                    
+                    // Reset inputs
+                    select.value = "";
+                    qtyInput.value = "";
+                    doseInput.value = "";
+                });
+
+                container.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('remove-medicine')) {
+                        e.target.closest('.card').remove();
+                    }
+                });
+            });
+        </script>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'listar_resultados' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+{% include "dashboard/footer.html" %}

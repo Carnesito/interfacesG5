@@ -3,12 +3,29 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import redirect
-# Create your views here.
+from pacientes.models import Paciente
+from citas.models import Cita
+from especialidades.models import Especialidad
+from medicinas.models import Medicina
+
 def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+    total_pacientes = Paciente.objects.count()
+    total_citas = Cita.objects.count()
+    total_especialidades = Especialidad.objects.count()
+    total_medicinas = Medicina.objects.count()
+    usuarios_recientes = User.objects.all().order_by('-date_joined')[:5]
+
+    contexto = {
+        'total_pacientes': total_pacientes,
+        'total_citas': total_citas,
+        'total_especialidades': total_especialidades,
+        'total_medicinas': total_medicinas,
+        'usuarios_recientes': usuarios_recientes,
+    }
+    return render(request, 'dashboard/dashboard.html', contexto)
 
 def listar_usuarios(request):
-    usuarios = User.objects.all()
+    usuarios = User.objects.all().order_by('id')
     contexto = {
         'usuarios': usuarios
     }

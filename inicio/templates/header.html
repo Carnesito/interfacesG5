@@ -55,7 +55,6 @@
             <li><a href="{% url 'inicio' %}" class="{% if request.resolver_match.url_name == 'inicio' %}active{% endif %}">Inicio</a></li>
             <li><a href="{% url 'doctores' %}" class="{% if request.resolver_match.url_name == 'doctores' %}active{% endif %}">Doctores</a></li>
             <li><a href="{% url 'departamentos' %}" class="{% if request.resolver_match.url_name == 'departamentos' %}active{% endif %}">Centros Médicos</a></li>
-            <li><a href="{% url 'citas' %}" class="{% if request.resolver_match.url_name == 'citas' %}active{% endif %}">Agendar Cita</a></li>
             <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

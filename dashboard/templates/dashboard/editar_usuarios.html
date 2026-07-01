@@ -1,21 +1,26 @@
 {% load static %}
 {% include 'dashboard/header.html' %}
-<form action="{% url 'editar_usuarios' usuario.id %}" method="post">
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="username">NUEVO Nombre de usuario:</label>
-        <input type="text" class="form-control" id="username_edit" name="username_edit" value="{{ usuario.username }}" required placeholder="Ingrese el nombre de usuario">
-    </div>
-    <div class="form-group">
-        <label for="email">NUEVO Correo electrónico:</label>
-        <input type="email" class="form-control" id="email_edit" name="email_edit" value="{{ usuario.email }}" required placeholder="Ingrese el correo electrónico">
-    </div>
-    <div class="form-group">
-        <label for="password">NUEVA Contraseña:</label>
-        <input type="password" class="form-control" id="password_edit" name="password_edit" >
-    </div>
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a href="{% url 'listar_usuarios' %}" class="btn btn-danger">Cancelar</a>
 
-</form>
+<div class="container mt-4">
+    <h2>Editar Usuario</h2>
+    <br>
+    <form action="{% url 'editar_usuarios' usuario.id %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username_edit">NUEVO Nombre de usuario:</label>
+            <input type="text" class="form-control" id="username_edit" name="username_edit" value="{{ usuario.username }}" required placeholder="Ingrese el nombre de usuario">
+        </div>
+        <div class="mb-3">
+            <label for="email_edit">NUEVO Correo electrónico:</label>
+            <input type="email" class="form-control" id="email_edit" name="email_edit" value="{{ usuario.email }}" required placeholder="Ingrese el correo electrónico">
+        </div>
+        <div class="mb-3">
+            <label for="password_edit">NUEVA Contraseña:</label>
+            <input type="password" class="form-control" id="password_edit" name="password_edit" placeholder="Dejar en blanco para no cambiar">
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'listar_usuarios' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
 {% include 'dashboard/footer.html' %}

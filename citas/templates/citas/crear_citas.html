@@ -1,0 +1,59 @@
+{% load static %}
+{% include "dashboard/header.html" %}
+
+<div class="container mt-4">
+    <h2>Agendar Nueva Cita</h2>
+    <br>
+    <form method="POST" action="">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="paciente">Paciente</label>
+            <select class="form-control" id="paciente" name="paciente" required>
+                <option value="">-- Seleccionar Paciente --</option>
+                {% for paciente in pacientes %}
+                    <option value="{{ paciente.id }}">{{ paciente.nombre_completo }} (Cédula: {{ paciente.cedula }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="doctor">Doctor / Especialista</label>
+            <select class="form-control" id="doctor" name="doctor" required>
+                <option value="">-- Seleccionar Doctor --</option>
+                {% for doctor in doctores %}
+                    <option value="{{ doctor.id }}">Dr/Dra. {{ doctor.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="especialidad">Especialidad</label>
+            <select class="form-control" id="especialidad" name="especialidad" required>
+                <option value="">-- Seleccionar Especialidad --</option>
+                {% for especialidad in especialidades %}
+                    <option value="{{ especialidad.id }}">{{ especialidad.nombre }} - Costo: ${{ especialidad.costo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha">Fecha de la Cita</label>
+            <input type="text" class="form-control" id="fecha" name="fecha" placeholder="AAAA-MM-DD" required>
+        </div>
+        <div class="mb-3">
+            <label for="hora">Hora de la Cita</label>
+            <input type="time" class="form-control" id="hora" name="hora" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="motivo_consulta">Motivo de la Consulta</label>
+            <textarea class="form-control" id="motivo_consulta" name="motivo_consulta" rows="3" placeholder="Sintomas, revisión de control..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'listar_citas' %}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+{% include "dashboard/footer.html" %}

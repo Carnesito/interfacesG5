@@ -11,9 +11,6 @@ def doctores(request):
 def departamentos(request):
     return render(request, 'departments.html')
 
-def citas(request):
-    return render(request, 'citas.html')
-
 def login_view(request):
     mensaje = ''
     if request.method == 'POST':
